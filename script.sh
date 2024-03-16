@@ -1,4 +1,4 @@
 #!/bin/bash
-
-echo "test httpd"
-httpd -v
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
