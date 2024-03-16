@@ -16,16 +16,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                yum install httpd -y
-                systemctl start httpd
-                systemctl enable httpd
+                sh(""" ./script.sh""")
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing....'
-                httpd -v
-                systemctl statud httpd
             }
         }
     }
