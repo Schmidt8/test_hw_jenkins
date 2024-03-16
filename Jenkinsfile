@@ -18,11 +18,6 @@ pipeline {
                 sh(""" ./script.sh""")
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing....'
-            }
-        }
     }
 }
 
