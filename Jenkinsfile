@@ -1,6 +1,6 @@
 pipeline {
-    agent { label 'tf' }
-    //agent any
+    //agent { label 'tf' }
+    agent any
     
     stages {
         stage('Build') {
