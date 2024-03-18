@@ -17,11 +17,14 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh "chmod +x ./script.sh"
-                sh(""" ./script.sh""")
-                
-                sh 'terraform plan -out=my_plan'
-                archive includes: 'my_plan'
+                sh(""" ./script.sh""")      
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '**/*.min.*', onlyIfSuccessful: true
         }
     }
 }
