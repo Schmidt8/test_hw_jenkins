@@ -25,7 +25,7 @@ pipeline {
 
 post {
         always {
-            archiveArtifacts artifacts: '/apache_install_date.txt', fingerprint: true           
+            archiveArtifacts artifacts: '**/apache_install_date.txt', fingerprint: true           
         }
     }
 }
