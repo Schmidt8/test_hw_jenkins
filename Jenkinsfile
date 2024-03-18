@@ -17,14 +17,16 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh "chmod +x ./script.sh"
-                sh(""" ./script.sh""")      
+                sh(""" ./script.sh""")
+                
             }
         }
     }
 
-    post {
+post {
         always {
-            archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
         }
     }
 }
