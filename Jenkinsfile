@@ -24,7 +24,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '**/*.min.*', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
         }
     }
 }
