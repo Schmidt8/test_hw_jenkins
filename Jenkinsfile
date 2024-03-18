@@ -18,6 +18,9 @@ pipeline {
                 echo 'Deploying....'
                 sh "chmod +x ./script.sh"
                 sh(""" ./script.sh""")
+                
+                sh 'terraform plan -out=my_plan'
+                archive includes: 'my_plan'
             }
         }
     }
